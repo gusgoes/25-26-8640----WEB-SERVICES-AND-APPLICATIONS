@@ -1,11 +1,18 @@
 import requests
+import requests
 from config import config as cfg
-import json
 
-url = "https://github.com/gusgoes/privateapi"
-apikey = cfg["githubkey"]
-filename = "repo.json"
-response = requests.get(url, auth=('token', apikey)) 
-repoJSON = response.json() 
-#print (response.json()) 
-with open(filename, 'w') as fp: json.dump(repoJSON, fp, indent=4) 
+url = "https://api.github.com/repos/gusgoes/aprivateone"
+headers = {
+    "Authorization": f"Bearer {cfg['githubkey']}",
+    "Accept": "application/vnd.github+json",
+}
+
+response = requests.get(url, headers=headers)
+
+print("STATUS:", response.status_code)
+print("Content-Type:", response.headers.get("Content-Type"))
+print("First 300 chars of body:\n", response.text[:300])
+
+if response.headers.get("Content-Type", "").startswith("application/json"):
+    print("JSON message (if any):", response.json().get("message"))
