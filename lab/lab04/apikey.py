@@ -1,17 +1,45 @@
-from config import config as cfg
-import requests
-import urllib.parse
-
-targetUrl = "https://andrewbeatty1.pythonanywhere.com/bookviewer.html" 
-apikey = cfg["htmltopdfkey"]
-
-apiurl = 'https://api.html2pdf.app/v1/generate' 
- 
-params = {'url': targetUrl,'apiKey': apikey} 
-parsedparams = urllib.parse.urlencode(params) 
-requestUrl = apiurl +"?" + parsedparams  
- 
-response = requests.get(requestUrl) 
-print (response.status_code) 
- 
-result =response.content
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0cf1c21b",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "ImportError",
+     "evalue": "cannot import name 'apikey' from 'config' (c:\\Users\\gusgo\\OneDrive\\Higher Diploma in Science in Computing in Data Analytics\\25-26-8640----WEB-SERVICES-AND-APPLICATIONS\\lab\\lab04\\config.py)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mImportError\u001b[39m                               Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[9]\u001b[39m\u001b[32m, line 1\u001b[39m\n\u001b[32m----> \u001b[39m\u001b[32m1\u001b[39m \u001b[38;5;28;01mfrom\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01mconfig\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[38;5;28;01mimport\u001b[39;00m apikey\n\u001b[32m      3\u001b[39m \u001b[38;5;28mprint\u001b[39m(apikey)\n",
+      "\u001b[31mImportError\u001b[39m: cannot import name 'apikey' from 'config' (c:\\Users\\gusgo\\OneDrive\\Higher Diploma in Science in Computing in Data Analytics\\25-26-8640----WEB-SERVICES-AND-APPLICATIONS\\lab\\lab04\\config.py)"
+     ]
+    }
+   ],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
