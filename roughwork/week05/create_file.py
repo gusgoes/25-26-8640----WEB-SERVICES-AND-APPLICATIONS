@@ -21,7 +21,7 @@ repo = g.get_user().get_repo(repo_name)
 
 file_path = "week05_created.txt"
 now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-content = f"This file was created by [assignment04-github.py](http://_vscodecontentref_/2) on {now}\n"
+content = f"This file was created by create_file.py on {now}\n"
 
 try:
     existing = repo.get_contents(file_path)
