@@ -1,0 +1,32 @@
+[
+  {
+    "id": 2,
+    "title": "Python Basics",
+    "author": "Guido van Rossum",
+    "price": 3999
+  },
+  {
+    "title": "New Book",
+    "author": "Me",
+    "price": 1234,
+    "id": 3
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "price": 4999,
+    "id": 4
+  },
+  {
+    "title": "Marcia Eu Te Amo",
+    "author": "Gustavo",
+    "price": 1000000000,
+    "id": 5
+  },
+  {
+    "title": "Jesus is amazing book",
+    "author": "Gustavo",
+    "price": 1000000,
+    "id": 6
+  }
+]
