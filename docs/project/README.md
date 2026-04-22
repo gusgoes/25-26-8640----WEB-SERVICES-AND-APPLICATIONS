@@ -1,0 +1,3 @@
+# docs/project
+
+Project documentation.
