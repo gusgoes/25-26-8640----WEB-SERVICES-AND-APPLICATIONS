@@ -1,8 +1,9 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables from .env file (if it exists)
-load_dotenv()
+# Load environment variables from .env file next to this file
+load_dotenv(Path(__file__).with_name(".env"))
 
 # Database configuration settings
 DB_CONFIG = {

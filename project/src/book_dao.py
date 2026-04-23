@@ -1,6 +1,5 @@
 import mysql.connector
-from dbconfig import DB_CONFIG
-
+from config.dbconfig import DB_CONFIG
 class BookDAO:
     def __init__(self):
         self.connection = None
