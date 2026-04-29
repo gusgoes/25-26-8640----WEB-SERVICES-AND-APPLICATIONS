@@ -10,7 +10,7 @@ Course repository for Web Services and Applications (Higher Diploma in Science i
 - `labs/` - Lab work and exercises
 - `_scratch/` - Personal rough work and experiments
 
-## Main Project (What To Review First)
+## Main Project
 
 If you are reviewing the core project, start here:
 
