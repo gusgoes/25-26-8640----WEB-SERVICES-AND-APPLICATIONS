@@ -38,17 +38,25 @@ def validate_book_payload(data):
     return True, clean_data
 
 
+def success(data, status_code=200):
+    return jsonify({"status": "success", "data": data}), status_code
+
+
+def error(message, status_code):
+    return jsonify({"status": "error", "message": message}), status_code
+
+
 @app.route('/books', methods=['GET'])
 def get_all_books():
-    return jsonify(book_dao.get_all())
+    return success(book_dao.get_all())
 
 
 @app.route('/books/<int:id>', methods=['GET'])
 def get_book(id):
     book = book_dao.find_by_id(id)
     if book is None:
-        return jsonify({'error': 'Not found'}), 404
-    return jsonify(book)
+        return error('Not found', 404)
+    return success(book)
 
 
 @app.route('/books', methods=['POST'])
@@ -57,10 +65,10 @@ def create_book():
     is_valid, result = validate_book_payload(data)
 
     if not is_valid:
-        return jsonify({"error": result}), 400
+        return error(result, 400)
 
     new_id = book_dao.create(result)
-    return jsonify({'id': new_id}), 201
+    return success({'id': new_id}, 201)
 
 
 @app.route('/books/<int:id>', methods=['PUT'])
@@ -69,20 +77,20 @@ def update_book(id):
     is_valid, result = validate_book_payload(data)
 
     if not is_valid:
-        return jsonify({"error": result}), 400
+        return error(result, 400)
 
     rows = book_dao.update(id, result)
     if rows == 0:
-        return jsonify({'error': 'Not found'}), 404
-    return jsonify({'updated': id})
+        return error('Not found', 404)
+    return success({'updated': id})
 
 
 @app.route('/books/<int:id>', methods=['DELETE'])
 def delete_book(id):
     rows = book_dao.delete(id)
     if rows == 0:
-        return jsonify({'error': 'Not found'}), 404
-    return jsonify({'deleted': id})
+        return error('Not found', 404)
+    return success({'deleted': id})
 
 
 if __name__ == "__main__":
